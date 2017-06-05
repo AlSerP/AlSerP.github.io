@@ -173,6 +173,8 @@
             //6
             if ((y < bl_6y_3 + 30) && (y > bl_6y_3 - 10)&& (bl_6x_3 - 10 < x) && (bl_6x_3 + 100 > x)) vy = -vy, bl_6x_3 = -300, chet = chet + 200, vx = vx + 0.1, vy = vy + 0.2;
             gm.fillRect(bl_6x_3, bl_6y_3, 100, 20);
+            
+            if (chet > 3400) alert(You Win);
         }
 
         window.requestAnimationFrame(animation);
