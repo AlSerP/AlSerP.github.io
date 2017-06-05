@@ -108,7 +108,7 @@
             y = y + vy;
             if ((x > my_game.width - 10) || (x < 10)) vx = -vx;
             if ((y > my_game.height - 10) || (y < 10)) vy = -vy;
-            if (y > my_game.height - 10) x = 300, y = 10;
+            if (y > my_game.height - 10) alert(Looser);
             //шарик отталкивается от платформы
             if (((y > pc_y - 10) && (pc_x - 10 < x) && (pc_x + 100 > x))) vy = -vy;
             //рисуем платформу
