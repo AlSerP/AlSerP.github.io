@@ -36,8 +36,8 @@
         var
             x = 400,
             y = 100,
-            vx = 1,
-            vy = 2;
+            vx = 2,
+            vy = 4;
         //Платформа игрока
         var
             pc_x = 400,
@@ -126,25 +126,25 @@
             gm.fillRect(pc_x, pc_y, 100, 20);
             //кубик
             gm.fillStyle = "black";
-            if ((y < bl_y + 30) && (y > bl_y - 10) && (bl_x - 10 < x) && (bl_x + 100 > x)) vy = -vy, bl_x = -300, chet = chet + 200, vx = vx + 0.1, vy = vy + 0.2;
+            if ((y < bl_y + 30) && (y > bl_y - 10) && (bl_x - 10 < x) && (bl_x + 100 > x)) vy = -vy, bl_x = -300, chet = chet + 200;
             gm.fillRect(bl_x, bl_y, 100, 20);
             //2
-            if ((y < bl_2y + 30) && (y > bl_2y - 10)&& (bl_2x - 10 < x) && (bl_2x + 100 > x)) vy = -vy, bl_2x = -300, chet = chet + 200, vx = vx + 0.1, vy = vy + 0.2;
+            if ((y < bl_2y + 30) && (y > bl_2y - 10)&& (bl_2x - 10 < x) && (bl_2x + 100 > x)) vy = -vy, bl_2x = -300, chet = chet + 200;
             gm.fillRect(bl_2x, bl_2y, 100, 20);
             //3
-            if ((y < bl_3y + 30) && (y > bl_3y - 10)&& (bl_3x - 10 < x) && (bl_3x + 100 > x)) vy = -vy, bl_3x = -300, chet = chet + 200, vx = vx + 0.1, vy = vy + 0.2;
+            if ((y < bl_3y + 30) && (y > bl_3y - 10)&& (bl_3x - 10 < x) && (bl_3x + 100 > x)) vy = -vy, bl_3x = -300, chet = chet + 200;
             gm.fillRect(bl_3x, bl_3y, 100, 20);
             //4
-            if ((y < bl_4y + 30) && (y > bl_4y - 10)&& (bl_4x - 10 < x) && (bl_4x + 100 > x)) vy = -vy, bl_4x = -300, chet = chet + 200, vx = vx + 0.1, vy = vy + 0.2;
+            if ((y < bl_4y + 30) && (y > bl_4y - 10)&& (bl_4x - 10 < x) && (bl_4x + 100 > x)) vy = -vy, bl_4x = -300, chet = chet + 200;
             gm.fillRect(bl_4x, bl_4y, 100, 20);
             //5
-            if ((y < bl_5y + 30) && (y > bl_5y - 10)&& (bl_5x - 10 < x) && (bl_5x + 100 > x)) vy = -vy, bl_5x = -300, chet = chet + 200, vx = vx + 0.1, vy = vy + 0.2;
+            if ((y < bl_5y + 30) && (y > bl_5y - 10)&& (bl_5x - 10 < x) && (bl_5x + 100 > x)) vy = -vy, bl_5x = -300, chet = chet + 200;
             gm.fillRect(bl_5x, bl_5y, 100, 20);
             //6
-            if ((y < bl_6y + 30) && (y > bl_6y - 10)&& (bl_6x - 10 < x) && (bl_6x + 100 > x)) vy = -vy, bl_6x = -300, chet = chet + 200, vx = vx + 0.1, vy = vy + 0.2;
+            if ((y < bl_6y + 30) && (y > bl_6y - 10)&& (bl_6x - 10 < x) && (bl_6x + 100 > x)) vy = -vy, bl_6x = -300, chet = chet + 200;
             gm.fillRect(bl_6x, bl_6y, 100, 20);
-            vx = vx + 0.001;
-            vy = vy + 0.002;
+            vx = vx;
+            vy = vy;
             //Second
             //кубик
             gm.fillStyle = "black";
@@ -184,6 +184,7 @@
             //6
             if ((y < bl_6y_3 + 30) && (y > bl_6y_3 - 10)&& (bl_6x_3 - 10 < x) && (bl_6x_3 + 100 > x)) vy = -vy, bl_6x_3 = -300, chet = chet + 200, vx = vx + 0.1, vy = vy + 0.2;
             gm.fillRect(bl_6x_3, bl_6y_3, 100, 20);
+            if (chet == 3600) alert("You WIN");
         }
 
         window.requestAnimationFrame(animation);
