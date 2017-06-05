@@ -4,13 +4,12 @@
 <head>
     <script src="script.js"></script>
     <style>
-        body{
-            background-color: red;
-        }
         canvas {
-            width: 100%;
+            width: 90vw;
             border: 2px black solid;
             border-radius: 20px;
+            background-image: url(http://selfhacker.net/wp-content/uploads/2015/06/space.jpg);
+            background-size: cover;
         }
     </style>
 </head>
@@ -114,6 +113,7 @@
             if (y > my_game.height - 10) x = 300, y = 10;
             //шарик отталкивается от платформы
             if (((y > pc_y - 10) && (pc_x - 10 < x) && (pc_x + 100 > x))) vy = -vy;
+            gm.fillStyle = "#black";
             //рисуем платформу
             gm.fillRect(pc_x, pc_y, 100, 20);
             //кубик
