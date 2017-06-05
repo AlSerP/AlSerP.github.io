@@ -178,8 +178,8 @@
         window.requestAnimationFrame(animation);
 
         function navigate(event) {
-            if (event.keyCode == 39) pc_x = pc_x + 10;
-            if (event.keyCode == 37) pc_x = pc_x - 10;
+            if (event.keyCode == 39) pc_x = pc_x + 100;
+            if (event.keyCode == 37) pc_x = pc_x - 100;
             if (pc_x + 100 > 600) pc_x = pc_x - 10, gm.fillStyle = "red";;
             if (pc_x < 0) pc_x = pc_x + 10, gm.fillStyle = "red";;
         }
