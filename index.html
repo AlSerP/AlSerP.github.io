@@ -4,7 +4,14 @@
 <head>
     <script src="script.js"></script>
     <style>
+        @import url('https://fonts.googleapis.com/css?family=Bubbler+One');
+        body{
+            background-color: #1b0e29;
+            color: aliceblue;
+            font-family: 'Bubbler One', sans-serif;
+        }
         canvas {
+            margin-left: calc(50vw - 45vw);
             width: 90vw;
             border: 2px black solid;
             border-radius: 20px;
@@ -33,7 +40,7 @@
             vy = 2;
         //Платформа игрока
         var
-            pc_x = 300,
+            pc_x = 400,
             pc_y = 250;
         //Просчёт физики и прорисовка
         var
@@ -95,6 +102,8 @@
         //счет
         var
             chet = 0;
+        
+        alert("Press OK to start")
 
         function animation() {
             //задаём таймер
@@ -110,10 +119,9 @@
             y = y + vy;
             if ((x > my_game.width - 10) || (x < 10)) vx = -vx;
             if ((y > my_game.height - 10) || (y < 10)) vy = -vy;
-            if (y > my_game.height - 10) x = 300, y = 10;
+            if (y > my_game.height - 10) alert("Loose"), x = 400, y = -100;
             //шарик отталкивается от платформы
             if (((y > pc_y - 10) && (pc_x - 10 < x) && (pc_x + 100 > x))) vy = -vy;
-            gm.fillStyle = "#black";
             //рисуем платформу
             gm.fillRect(pc_x, pc_y, 100, 20);
             //кубик
