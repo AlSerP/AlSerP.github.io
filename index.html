@@ -37,10 +37,14 @@
     <p>
         S - пауза<br> управление - стрелка вправо/влево
     </p>
+    <input type='button' value='Изменить' onclick='messageShow()'/>
     <button type='button' value='Начать игру' onclick='StartGame()' />
     <canvas width="600" height="300" id="my_game"></canvas>
     
     <script>
+        function messageShow() {
+            document.getElementById('my_game').style.backgroundImage=" url(http://www.wallpaperhd.pk/wp-content/uploads/2015/08/meteorites-cosmos-sci-fi-wallpaper.jpg)";
+        }
         function StartGame(){
         "use strict";
         var gm = my_game.getContext("2d");
