@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <meta charset="utf-8">
     <script src="script.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css?family=Bubbler+One');
@@ -18,6 +19,14 @@
             background-image: url(http://selfhacker.net/wp-content/uploads/2015/06/space.jpg);
             background-size: cover;
         }
+        button{
+            background-color: #1b0e29;
+            border: none;
+            color: aliceblue;
+        }
+        .shop{
+            background-image: url(https://wallperz.com/wp-content/uploads/2017/01/20/wallperz.com-20170120234525.jpg);
+        }
     </style>
 </head>
 
@@ -28,8 +37,11 @@
     <p>
         S - пауза<br> управление - стрелка вправо/влево
     </p>
+    <button type='button' value='Начать игру' onclick='StartGame()' />
     <canvas width="600" height="300" id="my_game"></canvas>
+    
     <script>
+        function StartGame(){
         "use strict";
         var gm = my_game.getContext("2d");
         //Переменные для шарика
@@ -37,7 +49,8 @@
             x = 400,
             y = 100,
             vx = 2,
-            vy = 4;
+            vy = 4,
+            pl = 10;
         //Платформа игрока
         var
             pc_x = 400,
@@ -102,9 +115,9 @@
         //счет
         var
             chet = 0;
-        
+        var
+            rep = 0;
         alert("Press OK to start")
-
         function animation() {
             //задаём таймер
             window.requestAnimationFrame(animation);
@@ -121,7 +134,8 @@
             if ((y > my_game.height - 10) || (y < 10)) vy = -vy;
             if (y > my_game.height - 10) alert("Loose"), x = 400, y = -100;
             //шарик отталкивается от платформы
-            if (((y > pc_y - 10) && (pc_x - 10 < x) && (pc_x + 100 > x))) vy = -vy;
+            if ((y > pc_y - 10) && (pc_x - 10 < x) && (pc_x + 100 > x)  && (vx < 0)) vy = -vy, vx = vx + (vx - pc_x) / 1000, pl = pl + 1;
+            if ((y > pc_y - 10) && (pc_x - 10 < x) && (pc_x + 100 > x)  && (vx > 0)) vy = -vy, vx = vx - (vx - pc_x) / 1000, pl = pl + 1;
             //рисуем платформу
             gm.fillRect(pc_x, pc_y, 100, 20);
             //кубик
@@ -184,23 +198,21 @@
             //6
             if ((y < bl_6y_3 + 30) && (y > bl_6y_3 - 10)&& (bl_6x_3 - 10 < x) && (bl_6x_3 + 100 > x)) vy = -vy, bl_6x_3 = -300, chet = chet + 200, vx = vx + 0.1, vy = vy + 0.2;
             gm.fillRect(bl_6x_3, bl_6y_3, 100, 20);
-            if (chet == 3600) alert("You WIN");
         }
-
+        if (chet == 3600) alert("You WIN");
         window.requestAnimationFrame(animation);
-
         function navigate(event) {
-            if (event.keyCode == 39) pc_x = pc_x + 10;
-            if (event.keyCode == 37) pc_x = pc_x - 10;
+            if (event.keyCode == 39) pc_x = pc_x + pl;
+            if (event.keyCode == 37) pc_x = pc_x - pl;
             if (pc_x + 100 > 600) pc_x = pc_x - 10, gm.fillStyle = "red";;
             if (pc_x < 0) pc_x = pc_x + 10, gm.fillStyle = "red";;
         }
-
         function che(event) {
             if (event.keyCode == 83) alert(chet);
         }
         document.addEventListener("keydown", navigate);
         document.addEventListener("keydown", che);
+        }
     </script>
 </body>
 
