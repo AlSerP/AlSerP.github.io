@@ -132,7 +132,7 @@
             y = y + vy;
             if ((x > my_game.width - 10) || (x < 10)) vx = -vx;
             if ((y > my_game.height - 10) || (y < 10)) vy = -vy;
-            if (y > my_game.height - 10) alert("Loose"), x = 400, y = -100;
+            if (y > my_game.height - 10) alert("Loose"), chet = 0;
             //шарик отталкивается от платформы
             if ((y > pc_y - 10) && (pc_x - 10 < x) && (pc_x + 100 > x)  && (vx < 0)) vy = -vy, vx = vx + (vx - pc_x) / 1000, pl = pl + 1;
             if ((y > pc_y - 10) && (pc_x - 10 < x) && (pc_x + 100 > x)  && (vx > 0)) vy = -vy, vx = vx - (vx - pc_x) / 1000, pl = pl + 1;
