@@ -151,6 +151,7 @@
             if ((y > pc_y - 10) && (pc_x - 10 < x) && (pc_x + 100 > x)  && (vx < 0)) vy = -vy, vx = vx + (vx - pc_x) / 1000, pl = pl + 1;
             if ((y > pc_y - 10) && (pc_x - 10 < x) && (pc_x + 100 > x)  && (vx > 0)) vy = -vy, vx = vx - (vx - pc_x) / 1000, pl = pl + 1;
             //рисуем платформу
+            gm.fillStyle = "black";
             gm.fillRect(pc_x, pc_y, 100, 20);
             //кубик
             gm.fillStyle = "red";
