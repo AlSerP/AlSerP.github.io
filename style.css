@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Bubbler+One');
+@import url('https://fonts.googleapis.com/css?family=Bubbler+One|Raleway');
 body, html{margin: 0}
 h1{
     text-align: center;
@@ -33,4 +33,23 @@ main{
 .im{
     width: 300px;
     height: 200px;
+}
+.creators{
+    font-family: 'Raleway', sans-serif;
+    font-size: 130%;
+    position: relative;
+    left: 200px;
+    top: 20px;
+}
+.Nikita{
+    position: relative;
+    left: -185px;
+    top: 30px;
+}
+.date{
+    font-family: 'Raleway', sans-serif;
+    font-size: 130%;
+    position: relative;
+    top: 20px;
+    left: 600px;
 }
