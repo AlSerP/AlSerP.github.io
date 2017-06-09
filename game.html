@@ -153,44 +153,54 @@
             //рисуем платформу
             gm.fillRect(pc_x, pc_y, 100, 20);
             //кубик
-            gm.fillStyle = "black";
+            gm.fillStyle = "red";
             if ((y < bl_y + 30) && (y > bl_y - 10) && (bl_x - 10 < x) && (bl_x + 100 > x)) vy = -vy, bl_x = -300, chet = chet + 200;
             gm.fillRect(bl_x, bl_y, 100, 20);
             //2
+            gm.fillStyle = "orange";
             if ((y < bl_2y + 30) && (y > bl_2y - 10)&& (bl_2x - 10 < x) && (bl_2x + 100 > x)) vy = -vy, bl_2x = -300, chet = chet + 200;
             gm.fillRect(bl_2x, bl_2y, 100, 20);
             //3
+            gm.fillStyle = "yellow";
             if ((y < bl_3y + 30) && (y > bl_3y - 10)&& (bl_3x - 10 < x) && (bl_3x + 100 > x)) vy = -vy, bl_3x = -300, chet = chet + 200;
             gm.fillRect(bl_3x, bl_3y, 100, 20);
             //4
+            gm.fillStyle = "#36e036";
             if ((y < bl_4y + 30) && (y > bl_4y - 10)&& (bl_4x - 10 < x) && (bl_4x + 100 > x)) vy = -vy, bl_4x = -300, chet = chet + 200;
             gm.fillRect(bl_4x, bl_4y, 100, 20);
             //5
+            gm.fillStyle = "deepskyblue";
             if ((y < bl_5y + 30) && (y > bl_5y - 10)&& (bl_5x - 10 < x) && (bl_5x + 100 > x)) vy = -vy, bl_5x = -300, chet = chet + 200;
             gm.fillRect(bl_5x, bl_5y, 100, 20);
             //6
+            gm.fillStyle = "purple";
             if ((y < bl_6y + 30) && (y > bl_6y - 10)&& (bl_6x - 10 < x) && (bl_6x + 100 > x)) vy = -vy, bl_6x = -300, chet = chet + 200;
             gm.fillRect(bl_6x, bl_6y, 100, 20);
             vx = vx;
             vy = vy;
             //Second
             //кубик
-            gm.fillStyle = "black";
+            gm.fillStyle = "purple";
             if ((y < bl_y_2 + 30) && (y > bl_y_2 - 10) && (bl_x_2 - 10 < x) && (bl_x_2 + 100 > x)) vy = -vy, bl_x_2 = -300, chet = chet + 200, vx = vx + 0.1, vy = vy + 0.2;
             gm.fillRect(bl_x_2, bl_y_2, 100, 20);
             //2
+            gm.fillStyle = "deepskyblue";
             if ((y < bl_2y_2 + 30) && (y > bl_2y_2 - 10)&& (bl_2x_2 - 10 < x) && (bl_2x_2 + 100 > x)) vy = -vy, bl_2x_2 = -300, chet = chet + 200, vx = vx + 0.1, vy = vy + 0.2;
             gm.fillRect(bl_2x_2, bl_2y_2, 100, 20);
             //3
+            gm.fillStyle = "#36e036";
             if ((y < bl_3y_2 + 30) && (y > bl_3y_2 - 10)&& (bl_3x_2 - 10 < x) && (bl_3x_2 + 100 > x)) vy = -vy, bl_3x_2 = -300, chet = chet + 200, vx = vx + 0.1, vy = vy + 0.2;
             gm.fillRect(bl_3x_2, bl_3y_2, 100, 20);
             //4
+            gm.fillStyle = "yellow";
             if ((y < bl_4y_2 + 30) && (y > bl_4y_2 - 10)&& (bl_4x_2 - 10 < x) && (bl_4x_2 + 100 > x)) vy = -vy, bl_4x_2 = -300, chet = chet + 200, vx = vx + 0.1, vy = vy + 0.2;
             gm.fillRect(bl_4x_2, bl_4y_2, 100, 20);
             //5
+            gm.fillStyle = "orange";
             if ((y < bl_5y_2 + 30) && (y > bl_5y_2 - 10)&& (bl_5x_2 - 10 < x) && (bl_5x_2 + 100 > x)) vy = -vy, bl_5x_2 = -300, chet = chet + 200, vx = vx + 0.1, vy = vy + 0.2;
             gm.fillRect(bl_5x_2, bl_5y_2, 100, 20);
             //6
+            gm.fillStyle = "red";
             if ((y < bl_6y_2 + 30) && (y > bl_6y_2 - 10)&& (bl_6x_2 - 10 < x) && (bl_6x_2 + 100 > x)) vy = -vy, bl_6x_2 = -300, chet = chet + 200, vx = vx + 0.1, vy = vy + 0.2;
             gm.fillRect(bl_6x_2, bl_6y_2, 100, 20);
             // Third
@@ -198,18 +208,23 @@
             if ((y < bl_y_3 + 30) && (y > bl_y_3 - 10) && (bl_x_3 - 10 < x) && (bl_x_3 + 100 > x)) vy = -vy, bl_x_3 = -300, chet = chet + 200, vx = vx + 0.1, vy = vy + 0.2;
             gm.fillRect(bl_x_3, bl_y_3, 100, 20);
             //2
+            gm.fillStyle = "orange";
             if ((y < bl_2y_3 + 30) && (y > bl_2y_3 - 10)&& (bl_2x_3 - 10 < x) && (bl_2x_3 + 100 > x)) vy = -vy, bl_2x_3 = -300, chet = chet + 200, vx = vx + 0.1, vy = vy + 0.2;
             gm.fillRect(bl_2x_3, bl_2y_3, 100, 20);
             //3
+            gm.fillStyle = "yellow";
             if ((y < bl_3y_3 + 30) && (y > bl_3y_3 - 10)&& (bl_3x_3 - 10 < x) && (bl_3x_3 + 100 > x)) vy = -vy, bl_3x_3 = -300, chet = chet + 200, vx = vx + 0.1, vy = vy + 0.2;
             gm.fillRect(bl_3x_3, bl_3y_3, 100, 20);
             //4
+            gm.fillStyle = "#36e036";
             if ((y < bl_4y_3 + 30) && (y > bl_4y_3 - 10)&& (bl_4x_3 - 10 < x) && (bl_4x_3 + 100 > x)) vy = -vy, bl_4x_3 = -300, chet = chet + 200, vx = vx + 0.1, vy = vy + 0.2;
             gm.fillRect(bl_4x_3, bl_4y_3, 100, 20);
             //5
+            gm.fillStyle = "deepskyblue";
             if ((y < bl_5y_3 + 30) && (y > bl_5y_3 - 10)&& (bl_5x_3 - 10 < x) && (bl_5x_3 + 100 > x)) vy = -vy, bl_5x_3 = -300, chet = chet + 200, vx = vx + 0.1, vy = vy + 0.2;
             gm.fillRect(bl_5x_3, bl_5y_3, 100, 20);
             //6
+            gm.fillStyle = "purple";
             if ((y < bl_6y_3 + 30) && (y > bl_6y_3 - 10)&& (bl_6x_3 - 10 < x) && (bl_6x_3 + 100 > x)) vy = -vy, bl_6x_3 = -300, chet = chet + 200, vx = vx + 0.1, vy = vy + 0.2;
             gm.fillRect(bl_6x_3, bl_6y_3, 100, 20);
             if (chet == 3600) alert("You WIN");
@@ -229,4 +244,3 @@
         }
     </script>
 </body>
-</html>
