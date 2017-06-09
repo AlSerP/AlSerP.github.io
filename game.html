@@ -7,8 +7,8 @@
     <style>
         @import url('https://fonts.googleapis.com/css?family=Bubbler+One');
         body{
-            background-color: #1b0e29;
-            color: aliceblue;
+            background-color:white;
+            color: #463f3f;
             font-family: 'Bubbler One', sans-serif;
         }
         canvas {
@@ -16,20 +16,20 @@
             width: 90vw;
             border: 2px black solid;
             border-radius: 20px;
-            background-image: url(http://selfhacker.net/wp-content/uploads/2015/06/space.jpg);
+            background-image: url(http://333v.ru/uploads/27/275ece47e10ddac918db3d0e0489845a.jpg);
             background-size: cover;
         }
         button{
-            background-color: #1b0e29;
+            background-color: white;
             border: none;
-            color: aliceblue;
+            color: #463f3f;
         }
         a{
             color: aliceblue;
             text-decoration: none;
         }
         .shop{
-            background-image: url(https://wallperz.com/wp-content/uploads/2017/01/20/wallperz.com-20170120234525.jpg);
+            background-image: url(http://hdwallpaperwall.com/wp-content/uploads/2016/11/Green-Nature-Wallpaper-Images-Free-Photos-For-Free-Download.jpg);
         }
     </style>
     <title>MiniGame</title>
@@ -48,7 +48,7 @@
     
     <script>
         function messageShow() {
-            document.getElementById('my_game').style.backgroundImage=" url(http://www.wallpaperhd.pk/wp-content/uploads/2015/08/meteorites-cosmos-sci-fi-wallpaper.jpg)";
+            document.getElementById('my_game').style.backgroundImage=" url(http://hdwallpaperwall.com/wp-content/uploads/2016/11/Green-Nature-Wallpaper-Images-Free-Photos-For-Free-Download.jpg)";
         }
         function StartGame(){
         "use strict";
@@ -213,8 +213,8 @@
         function navigate(event) {
             if (event.keyCode == 39) pc_x = pc_x + pl;
             if (event.keyCode == 37) pc_x = pc_x - pl;
-            if (pc_x + 100 > 600) pc_x = pc_x - 10, gm.fillStyle = "red";;
-            if (pc_x < 0) pc_x = pc_x + 10, gm.fillStyle = "red";;
+            if (pc_x + 100 > 600) pc_x = pc_x - 10, gm.fillStyle = "#36e036";;
+            if (pc_x < 0) pc_x = pc_x + 10, gm.fillStyle = "#36e036";;
         }
         function che(event) {
             if (event.keyCode == 83) alert(chet);
