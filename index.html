@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="script.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Bubbler+One');
+        body{
+            background-color: #1b0e29;
+            color: aliceblue;
+            font-family: 'Bubbler One', sans-serif;
+        }
+        canvas {
+            margin-left: calc(50vw - 45vw);
+            width: 90vw;
+            border: 2px black solid;
+            border-radius: 20px;
+            background-image: url(http://selfhacker.net/wp-content/uploads/2015/06/space.jpg);
+            background-size: cover;
+        }
+        button{
+            background-color: #1b0e29;
+            border: none;
+            color: aliceblue;
+        }
+        .shop{
+            background-image: url(https://wallperz.com/wp-content/uploads/2017/01/20/wallperz.com-20170120234525.jpg);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        Mini game
+    </h1>
+    <p>
+        S - пауза<br> управление - стрелка вправо/влево
+    </p>
+    <button type='button' value='Начать игру' onclick='StartGame()' />
+    <canvas width="600" height="300" id="my_game"></canvas>
+    
+    <script>
+        function StartGame(){
+        "use strict";
+        var gm = my_game.getContext("2d");
+        //Переменные для шарика
+        var
+            x,
+            y = 100,
+            vx = 2,
+            vy = 4,
+            pl = 10;
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min)) + min; 
+        }
+        x = (getRandomInt(30, 520));
+        //Платформа игрока
+        var
+            pc_x = x + 50,
+            pc_y = 250;
+        //Просчёт физики и прорисовка
+        var
+            bl_x = 0,
+            bl_y = 0;
+        var
+            bl_2x = 102,
+            bl_2y = 0;
+        var
+            bl_3x = 204,
+            bl_3y = 0;
+        var
+            bl_4x = 306,
+            bl_4y = 0;
+        var
+            bl_5x = 408,
+            bl_5y = 0;
+        var
+            bl_6x = 510,
+            bl_6y = 0;
+        //Second
+        var
+            bl_x_2 = 0,
+            bl_y_2 = 22;
+        var
+            bl_2x_2 = 102,
+            bl_2y_2 = 22;
+        var
+            bl_3x_2 = 204,
+            bl_3y_2 = 22;
+        var
+            bl_4x_2 = 306,
+            bl_4y_2 = 22;
+        var
+            bl_5x_2 = 408,
+            bl_5y_2 = 22;
+        var
+            bl_6x_2 = 510,
+            bl_6y_2 = 22;
+        //Third
+        var
+            bl_x_3 = 0,
+            bl_y_3 = 44;
+        var
+            bl_2x_3 = 102,
+            bl_2y_3 = 44;
+        var
+            bl_3x_3 = 204,
+            bl_3y_3 = 44;
+        var
+            bl_4x_3 = 306,
+            bl_4y_3 = 44;
+        var
+            bl_5x_3 = 408,
+            bl_5y_3 = 44;
+        var
+            bl_6x_3 = 510,
+            bl_6y_3 = 44;
+        //счет
+        var
+            chet = 0;
+        var
+            rep = 0,
+            lose = 0;
+            
+        alert("Press OK to start")
+        function animation() {
+            //задаём таймер
+            window.requestAnimationFrame(animation);
+            //очистка canvas
+            gm.clearRect(0, 0, my_game.width, my_game.height);
+            //рисуем шарик
+            gm.beginPath();
+            gm.arc(x, y, 10, 0, 2 * Math.PI, true);
+            gm.fill();
+            //изменяем положения шарика
+            x = x + vx;
+            y = y + vy;
+            if ((x > my_game.width - 10) || (x < 10)) vx = -vx;
+            if ((y > my_game.height - 10) || (y < 10)) vy = -vy;
+            if (y > my_game.height - 10) lose = 1, chet = 0, x = -400, y = 100, vx = 0, vy = 0;
+            //шарик отталкивается от платформы
+            if ((y > pc_y - 10) && (pc_x - 10 < x) && (pc_x + 100 > x)  && (vx < 0)) vy = -vy, vx = vx + (vx - pc_x) / 1000, pl = pl + 1;
+            if ((y > pc_y - 10) && (pc_x - 10 < x) && (pc_x + 100 > x)  && (vx > 0)) vy = -vy, vx = vx - (vx - pc_x) / 1000, pl = pl + 1;
+            //рисуем платформу
+            gm.fillRect(pc_x, pc_y, 100, 20);
+            //кубик
+            gm.fillStyle = "black";
+            if ((y < bl_y + 30) && (y > bl_y - 10) && (bl_x - 10 < x) && (bl_x + 100 > x)) vy = -vy, bl_x = -300, chet = chet + 200;
+            gm.fillRect(bl_x, bl_y, 100, 20);
+            //2
+            if ((y < bl_2y + 30) && (y > bl_2y - 10)&& (bl_2x - 10 < x) && (bl_2x + 100 > x)) vy = -vy, bl_2x = -300, chet = chet + 200;
+            gm.fillRect(bl_2x, bl_2y, 100, 20);
+            //3
+            if ((y < bl_3y + 30) && (y > bl_3y - 10)&& (bl_3x - 10 < x) && (bl_3x + 100 > x)) vy = -vy, bl_3x = -300, chet = chet + 200;
+            gm.fillRect(bl_3x, bl_3y, 100, 20);
+            //4
+            if ((y < bl_4y + 30) && (y > bl_4y - 10)&& (bl_4x - 10 < x) && (bl_4x + 100 > x)) vy = -vy, bl_4x = -300, chet = chet + 200;
+            gm.fillRect(bl_4x, bl_4y, 100, 20);
+            //5
+            if ((y < bl_5y + 30) && (y > bl_5y - 10)&& (bl_5x - 10 < x) && (bl_5x + 100 > x)) vy = -vy, bl_5x = -300, chet = chet + 200;
+            gm.fillRect(bl_5x, bl_5y, 100, 20);
+            //6
+            if ((y < bl_6y + 30) && (y > bl_6y - 10)&& (bl_6x - 10 < x) && (bl_6x + 100 > x)) vy = -vy, bl_6x = -300, chet = chet + 200;
+            gm.fillRect(bl_6x, bl_6y, 100, 20);
+            vx = vx;
+            vy = vy;
+            //Second
+            //кубик
+            gm.fillStyle = "black";
+            if ((y < bl_y_2 + 30) && (y > bl_y_2 - 10) && (bl_x_2 - 10 < x) && (bl_x_2 + 100 > x)) vy = -vy, bl_x_2 = -300, chet = chet + 200, vx = vx + 0.1, vy = vy + 0.2;
+            gm.fillRect(bl_x_2, bl_y_2, 100, 20);
+            //2
+            if ((y < bl_2y_2 + 30) && (y > bl_2y_2 - 10)&& (bl_2x_2 - 10 < x) && (bl_2x_2 + 100 > x)) vy = -vy, bl_2x_2 = -300, chet = chet + 200, vx = vx + 0.1, vy = vy + 0.2;
+            gm.fillRect(bl_2x_2, bl_2y_2, 100, 20);
+            //3
+            if ((y < bl_3y_2 + 30) && (y > bl_3y_2 - 10)&& (bl_3x_2 - 10 < x) && (bl_3x_2 + 100 > x)) vy = -vy, bl_3x_2 = -300, chet = chet + 200, vx = vx + 0.1, vy = vy + 0.2;
+            gm.fillRect(bl_3x_2, bl_3y_2, 100, 20);
+            //4
+            if ((y < bl_4y_2 + 30) && (y > bl_4y_2 - 10)&& (bl_4x_2 - 10 < x) && (bl_4x_2 + 100 > x)) vy = -vy, bl_4x_2 = -300, chet = chet + 200, vx = vx + 0.1, vy = vy + 0.2;
+            gm.fillRect(bl_4x_2, bl_4y_2, 100, 20);
+            //5
+            if ((y < bl_5y_2 + 30) && (y > bl_5y_2 - 10)&& (bl_5x_2 - 10 < x) && (bl_5x_2 + 100 > x)) vy = -vy, bl_5x_2 = -300, chet = chet + 200, vx = vx + 0.1, vy = vy + 0.2;
+            gm.fillRect(bl_5x_2, bl_5y_2, 100, 20);
+            //6
+            if ((y < bl_6y_2 + 30) && (y > bl_6y_2 - 10)&& (bl_6x_2 - 10 < x) && (bl_6x_2 + 100 > x)) vy = -vy, bl_6x_2 = -300, chet = chet + 200, vx = vx + 0.1, vy = vy + 0.2;
+            gm.fillRect(bl_6x_2, bl_6y_2, 100, 20);
+            // Third
+            
+            if ((y < bl_y_3 + 30) && (y > bl_y_3 - 10) && (bl_x_3 - 10 < x) && (bl_x_3 + 100 > x)) vy = -vy, bl_x_3 = -300, chet = chet + 200, vx = vx + 0.1, vy = vy + 0.2;
+            gm.fillRect(bl_x_3, bl_y_3, 100, 20);
+            //2
+            if ((y < bl_2y_3 + 30) && (y > bl_2y_3 - 10)&& (bl_2x_3 - 10 < x) && (bl_2x_3 + 100 > x)) vy = -vy, bl_2x_3 = -300, chet = chet + 200, vx = vx + 0.1, vy = vy + 0.2;
+            gm.fillRect(bl_2x_3, bl_2y_3, 100, 20);
+            //3
+            if ((y < bl_3y_3 + 30) && (y > bl_3y_3 - 10)&& (bl_3x_3 - 10 < x) && (bl_3x_3 + 100 > x)) vy = -vy, bl_3x_3 = -300, chet = chet + 200, vx = vx + 0.1, vy = vy + 0.2;
+            gm.fillRect(bl_3x_3, bl_3y_3, 100, 20);
+            //4
+            if ((y < bl_4y_3 + 30) && (y > bl_4y_3 - 10)&& (bl_4x_3 - 10 < x) && (bl_4x_3 + 100 > x)) vy = -vy, bl_4x_3 = -300, chet = chet + 200, vx = vx + 0.1, vy = vy + 0.2;
+            gm.fillRect(bl_4x_3, bl_4y_3, 100, 20);
+            //5
+            if ((y < bl_5y_3 + 30) && (y > bl_5y_3 - 10)&& (bl_5x_3 - 10 < x) && (bl_5x_3 + 100 > x)) vy = -vy, bl_5x_3 = -300, chet = chet + 200, vx = vx + 0.1, vy = vy + 0.2;
+            gm.fillRect(bl_5x_3, bl_5y_3, 100, 20);
+            //6
+            if ((y < bl_6y_3 + 30) && (y > bl_6y_3 - 10)&& (bl_6x_3 - 10 < x) && (bl_6x_3 + 100 > x)) vy = -vy, bl_6x_3 = -300, chet = chet + 200, vx = vx + 0.1, vy = vy + 0.2;
+            gm.fillRect(bl_6x_3, bl_6y_3, 100, 20);
+            if (chet == 3600) alert("You WIN");
+        }
+        if(lose == 0) window.requestAnimationFrame(animation);
+        if(lose == 1) alert("LOSE");
+        function navigate(event) {
+            if (event.keyCode == 39) pc_x = pc_x + pl;
+            if (event.keyCode == 37) pc_x = pc_x - pl;
+            if (pc_x + 100 > 600) pc_x = pc_x - 10, gm.fillStyle = "red";
+            if (pc_x < 0) pc_x = pc_x + 10, gm.fillStyle = "red";
+        }
+        document.addEventListener("keydown", navigate);
+        }
+    </script>
+</body>
+
+</html>
