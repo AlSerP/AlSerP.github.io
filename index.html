@@ -6,98 +6,246 @@
     <title>RMA17</title>
     <style>
         @import url('https://fonts.googleapis.com/css?family=Lato');
-        .tablet{
+        body {
             background-color: #404040;
-            width: 1000px;
-            height: 500px;
+            margin: 0px;
         }
-        .player{
-            width: 1000px;
+        
+        .tablet {
+            margin: 30px;
+            background-color: #404040;
+            width: 750px;
+            height: 575px;
+            border: 1px #7b7b7b inset;
+            display: inline-block;
+        }
+        
+        .top {
+            height: 75px;
+            width: 750px;
+        }
+        
+        .player {
+            width: 750px;
             height: 125px;
         }
-        img{
+        
+        img {
             width: 100px;
             height: 100px;
-            border: 1px #61b161 solid;
+            border: 1px #7b7b7b inset;
             margin: 10px;
         }
-        spun{
+        
+        spun {
             font-family: 'Lato', sans-serif;
             color: white;
             font-size: 300%;
             position: relative;
             top: -40px;
         }
-        a{
+        
+        a {
             color: white;
             text-decoration: none;
         }
-        hr{
+        
+        hr {
             margin: 0px;
         }
-        .kills{
-            position: relative;
-            left: 200px;
+        
+        .t_kills {
+            position: static;
+            margin-left: 485px;
+            color: crimson;
         }
-        .kills_2{
-            position: relative;
-            left: 70px;
+        
+        .t_score {
+            position: static;
+            margin-left: 20px;
         }
-        .kills_3{
-            position: relative;
-            left: 60px;
+        
+        .t_Sc {
+            position: static;
+            margin-left: 20px;
+            color: goldenrod;
         }
-        .kills_4{
+        
+        .kills {
             position: relative;
-            left: 265px;
+            left: 225px;
         }
-        .score{
+        
+        .kills_2 {
+            position: relative;
+            left: 93px;
+        }
+        
+        .kills_3 {
+            position: relative;
+            left: 83px;
+        }
+        
+        .kills_4 {
+            position: relative;
+            left: 287px;
+        }
+        
+        .score {
             position: relative;
             left: 300px;
         }
-        .score_2{
+        
+        .score_2 {
             position: relative;
             left: 170px;
         }
-        .score_3{
+        
+        .score_3 {
             position: relative;
             left: 160px;
         }
-        .score_4{
+        
+        .score_4 {
             position: relative;
             left: 365px;
         }
-        .Sc{
+        
+        .Sc {
             position: relative;
             left: 360px;
-            color: #61b161;
+            color: goldenrod;
         }
-        .Sc_2{
+        
+        .Sc_2 {
             position: relative;
             left: 230px;
-            color: #61b161;
+            color: goldenrod;
         }
-        .Sc_3{
+        
+        .Sc_3 {
             position: relative;
             left: 220px;
-            color: #61b161;
+            color: goldenrod;
         }
-        .Sc_4{
+        
+        .Sc_4 {
             position: relative;
             left: 425px;
-            color: #61b161;
+            color: goldenrod;
+        }
+        
+        .games {
+            display: inline-block;
+            position: absolute;
+            left: 1000px;
+        }
+        
+        .game {
+            margin-top: 20px;
+            width: 750px;
+            height: 125px;
+            border-radius: 5px;
+            border: 1px goldenrod groove;
+        }
+        
+        .map {
+            width: 200px;
+            height: 100px;
+            position: relative;
+            margin: 12px 0px 0px 0px;
+            left: calc(375px - 100px);
+            border: 1px goldenrod inset;
+            border-radius: 20px;
+        }
+        
+        .m_a {
+            color: white;
+            position: relative;
+            left: 130px;
+            top: -35px;
+        }
+        
+        .team_1 img {
+            margin: 5px;
+            position: relative;
+            top: -120px;
+            left: 10px;
+            border: 2px #7b7b7b inset;
+        }
+        
+        .team_2 img {
+            margin: 5px;
+            position: relative;
+            top: -232px;
+            left: 515px;
+            border: 2px #7b7b7b inset;
         }
     </style>
 </head>
+
 <body>
     <div class="tablet">
-        <div class="player"><img src="http://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/98/984087917f6c3f53ef51d712c7daeeb0a919dfd6_full.jpg" alt="AlSerP"><spun><a href="http://steamcommunity.com/id/civ_6_lover/">AlSerP</a></spun> <spun class="kills">kills</spun> <spun class="score">score</spun> <spun class="Sc">СЦИ</spun></div>
-        <hr color="#61b161">
-        <div class="player"><img src="http://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/12/12ada16a808e681d6a6c48739eac3488307c11cd_full.jpg" alt="MrForbes"> <spun><a href="http://steamcommunity.com/id/MisterFoRBeS">.:MrFoRBeS:.</a></spun> <spun class="kills_2">kills</spun> <spun class="score_2">score</spun> <spun class="Sc_2">СЦИ</spun></div>
-        <hr color="#61b161">
-        <div class="player"><img src="http://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/ce/cecd2cac0835be4707873284f206d46c625b5f18_full.jpg" alt="GEFEST"> <spun><a href="http://steamcommunity.com/id/2286996822">GEFEST [TM]</a></spun> <spun class="kills_3">kills</spun> <spun class="score_3">score</spun> <spun class="Sc_3">СЦИ</spun></div>
-        <hr color="#61b161">
-        <div class="player"><img src="http://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/f6/f69369e0b87ad8fb386bdbdb9f845bfdea84534e_full.jpg" alt="Sun"> <spun><a href="http://steamcommunity.com/profiles/76561198052003432">Sun</a></spun> <spun class="kills_4">kills</spun> <spun class="score_4">score</spun> <spun class="Sc_4">СЦИ</spun></div>
+        <div class="top">
+            <spun class="t_kills">☠</spun>
+            <spun class="t_score">Wins</spun>
+            <spun class="t_Sc">★</spun>
+        </div>
+        <hr color="#7b7b7b">
+        <div class="player"><img src="http://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/98/984087917f6c3f53ef51d712c7daeeb0a919dfd6_full.jpg" alt="AlSerP">
+            <spun><a href="http://steamcommunity.com/id/civ_6_lover/">AlSerP</a></spun>
+            <spun class="kills">0</spun>
+            <spun class="score">0</spun>
+            <spun class="Sc">0</spun>
+        </div>
+        <hr color="#7b7b7b">
+        <div class="player"><img src="http://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/12/12ada16a808e681d6a6c48739eac3488307c11cd_full.jpg" alt="MrForbes">
+            <spun><a href="http://steamcommunity.com/id/MisterFoRBeS">.:MrFoRBeS:.</a></spun>
+            <spun class="kills_2">0</spun>
+            <spun class="score_2">0</spun>
+            <spun class="Sc_2">0</spun>
+        </div>
+        <hr color="#7b7b7b">
+        <div class="player"><img src="http://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/ce/cecd2cac0835be4707873284f206d46c625b5f18_full.jpg" alt="GEFEST">
+            <spun><a href="http://steamcommunity.com/id/2286996822">GEFEST [TM]</a></spun>
+            <spun class="kills_3">0</spun>
+            <spun class="score_3">0</spun>
+            <spun class="Sc_3">0</spun>
+        </div>
+        <hr color="#7b7b7b">
+        <div class="player"><img src="http://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/f6/f69369e0b87ad8fb386bdbdb9f845bfdea84534e_full.jpg" alt="Sun">
+            <spun><a href="http://steamcommunity.com/profiles/76561198052003432">Sun</a></spun>
+            <spun class="kills_4">0</spun>
+            <spun class="score_4">0</spun>
+            <spun class="Sc_4">0</spun>
+        </div>
     </div>
+
+    <div class="games">
+
+        <div class="game">
+            <img src="https://im0-tub-ru.yandex.net/i?id=15f0fa90e088380181b2f411dbfc3951&n=33&h=215&w=382" alt="mirage" class="map">
+            <spun class="m_a">TBA</spun>
+            <div class="team_1"><img src="http://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/98/984087917f6c3f53ef51d712c7daeeb0a919dfd6_full.jpg" alt="AlSerP"><img src="http://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/ce/cecd2cac0835be4707873284f206d46c625b5f18_full.jpg" alt="GEFEST"></div>
+            <div class="team_2"><img src="http://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/12/12ada16a808e681d6a6c48739eac3488307c11cd_full.jpg" alt="MrForbes"><img src="http://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/f6/f69369e0b87ad8fb386bdbdb9f845bfdea84534e_full.jpg" alt="Sun"></div>
+        </div>
+
+        <div class="game">
+            <img src="https://im0-tub-ru.yandex.net/i?id=15f0fa90e088380181b2f411dbfc3951&n=33&h=215&w=382" alt="mirage" class="map">
+            <spun class="m_a">TBA</spun>
+            <div class="team_1"><img src="http://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/98/984087917f6c3f53ef51d712c7daeeb0a919dfd6_full.jpg" alt="AlSerP"><img src="http://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/12/12ada16a808e681d6a6c48739eac3488307c11cd_full.jpg" alt="MrForbes"></div>
+            <div class="team_2"><img src="http://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/f6/f69369e0b87ad8fb386bdbdb9f845bfdea84534e_full.jpg" alt="Sun">
+                <img src="http://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/ce/cecd2cac0835be4707873284f206d46c625b5f18_full.jpg" alt="GEFEST"></div>
+        </div>
+
+        <div class="game">
+            <img src="https://im0-tub-ru.yandex.net/i?id=15f0fa90e088380181b2f411dbfc3951&n=33&h=215&w=382" alt="mirage" class="map">
+            <spun class="m_a">TBA</spun>
+            <div class="team_1"><img src="http://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/98/984087917f6c3f53ef51d712c7daeeb0a919dfd6_full.jpg" alt="AlSerP"><img src="http://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/f6/f69369e0b87ad8fb386bdbdb9f845bfdea84534e_full.jpg" alt="Sun"></div>
+            <div class="team_2"><img src="http://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/ce/cecd2cac0835be4707873284f206d46c625b5f18_full.jpg" alt="GEFEST"><img src="http://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/12/12ada16a808e681d6a6c48739eac3488307c11cd_full.jpg" alt="MrForbes"></div>
+        </div>
+
+    </div>
+    
 </body>
 </html>
