@@ -7,8 +7,8 @@
     <style>
         @import url('https://fonts.googleapis.com/css?family=Bubbler+One');
         body{
-            background-color:white;
-            color: #463f3f;
+            background-color: #1b0e29;
+            color: aliceblue;
             font-family: 'Bubbler One', sans-serif;
         }
         canvas {
@@ -16,60 +16,50 @@
             width: 90vw;
             border: 2px black solid;
             border-radius: 20px;
-            background-image: url(http://333v.ru/uploads/27/275ece47e10ddac918db3d0e0489845a.jpg);
+            background-image: url(http://selfhacker.net/wp-content/uploads/2015/06/space.jpg);
             background-size: cover;
         }
         button{
-            background-color: white;
+            background-color: #1b0e29;
             border: none;
-            color: #463f3f;
-        }
-        a{
-            color: #463f3f;
-            text-decoration: none;
+            color: aliceblue;
         }
         .shop{
-            background-image: url(http://hdwallpaperwall.com/wp-content/uploads/2016/11/Green-Nature-Wallpaper-Images-Free-Photos-For-Free-Download.jpg);
-        }
-        h1{
-           
-            text-align: center;
+            background-image: url(https://wallperz.com/wp-content/uploads/2017/01/20/wallperz.com-20170120234525.jpg);
         }
     </style>
-    <title>MiniGame</title>
 </head>
 
 <body>
     <h1>
         Mini game
     </h1>
-    <hr width="200"align="center"color="#36e036">
     <p>
-        S - пауза<br> управление - стрелка вправо/влево<br><a href="https://alserp.github.io/">Main</a>
+        S - пауза<br> управление - стрелка вправо/влево
     </p>
-    <input type='button' value='Изменить' onclick='messageShow()'/>
     <button type='button' value='Начать игру' onclick='StartGame()' />
     <canvas width="600" height="300" id="my_game"></canvas>
     
     <script>
-        function messageShow() {
-            document.getElementById('my_game').style.backgroundImage=" url(http://hdwallpaperwall.com/wp-content/uploads/2016/11/Green-Nature-Wallpaper-Images-Free-Photos-For-Free-Download.jpg)";
-        }
         function StartGame(){
         "use strict";
         var gm = my_game.getContext("2d");
         //Переменные для шарика
         var
-            x = 400,
+            x,
             y = 100,
             vx = 2,
             vy = 4,
             pl = 10;
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min)) + min; 
+        }
+        x = (getRandomInt(30, 520));
         //Платформа игрока
         var
-            pc_x = 400,
+            pc_x = x + 50,
             pc_y = 250;
-        //Просчёт физики и прорисовк
+        //Просчёт физики и прорисовка
         var
             bl_x = 0,
             bl_y = 0;
@@ -130,7 +120,9 @@
         var
             chet = 0;
         var
-            rep = 0;
+            rep = 0,
+            lose = 0;
+            
         alert("Press OK to start")
         function animation() {
             //задаём таймер
@@ -146,62 +138,51 @@
             y = y + vy;
             if ((x > my_game.width - 10) || (x < 10)) vx = -vx;
             if ((y > my_game.height - 10) || (y < 10)) vy = -vy;
-            if (y > my_game.height - 10) alert("Lose"), chet = 0, x = -400, y = 100, vx = 0, vy = 0;
+            if (y > my_game.height - 10) lose = 1, chet = 0, x = -400, y = 100, vx = 0, vy = 0;
             //шарик отталкивается от платформы
             if ((y > pc_y - 10) && (pc_x - 10 < x) && (pc_x + 100 > x)  && (vx < 0)) vy = -vy, vx = vx + (vx - pc_x) / 1000, pl = pl + 1;
             if ((y > pc_y - 10) && (pc_x - 10 < x) && (pc_x + 100 > x)  && (vx > 0)) vy = -vy, vx = vx - (vx - pc_x) / 1000, pl = pl + 1;
             //рисуем платформу
-            gm.fillStyle = "black";
             gm.fillRect(pc_x, pc_y, 100, 20);
             //кубик
-            gm.fillStyle = "red";
+            gm.fillStyle = "black";
             if ((y < bl_y + 30) && (y > bl_y - 10) && (bl_x - 10 < x) && (bl_x + 100 > x)) vy = -vy, bl_x = -300, chet = chet + 200;
             gm.fillRect(bl_x, bl_y, 100, 20);
             //2
-            gm.fillStyle = "orange";
             if ((y < bl_2y + 30) && (y > bl_2y - 10)&& (bl_2x - 10 < x) && (bl_2x + 100 > x)) vy = -vy, bl_2x = -300, chet = chet + 200;
             gm.fillRect(bl_2x, bl_2y, 100, 20);
             //3
-            gm.fillStyle = "yellow";
             if ((y < bl_3y + 30) && (y > bl_3y - 10)&& (bl_3x - 10 < x) && (bl_3x + 100 > x)) vy = -vy, bl_3x = -300, chet = chet + 200;
             gm.fillRect(bl_3x, bl_3y, 100, 20);
             //4
-            gm.fillStyle = "#36e036";
             if ((y < bl_4y + 30) && (y > bl_4y - 10)&& (bl_4x - 10 < x) && (bl_4x + 100 > x)) vy = -vy, bl_4x = -300, chet = chet + 200;
             gm.fillRect(bl_4x, bl_4y, 100, 20);
             //5
-            gm.fillStyle = "deepskyblue";
             if ((y < bl_5y + 30) && (y > bl_5y - 10)&& (bl_5x - 10 < x) && (bl_5x + 100 > x)) vy = -vy, bl_5x = -300, chet = chet + 200;
             gm.fillRect(bl_5x, bl_5y, 100, 20);
             //6
-            gm.fillStyle = "purple";
             if ((y < bl_6y + 30) && (y > bl_6y - 10)&& (bl_6x - 10 < x) && (bl_6x + 100 > x)) vy = -vy, bl_6x = -300, chet = chet + 200;
             gm.fillRect(bl_6x, bl_6y, 100, 20);
             vx = vx;
             vy = vy;
             //Second
             //кубик
-            gm.fillStyle = "purple";
+            gm.fillStyle = "black";
             if ((y < bl_y_2 + 30) && (y > bl_y_2 - 10) && (bl_x_2 - 10 < x) && (bl_x_2 + 100 > x)) vy = -vy, bl_x_2 = -300, chet = chet + 200, vx = vx + 0.1, vy = vy + 0.2;
             gm.fillRect(bl_x_2, bl_y_2, 100, 20);
             //2
-            gm.fillStyle = "deepskyblue";
             if ((y < bl_2y_2 + 30) && (y > bl_2y_2 - 10)&& (bl_2x_2 - 10 < x) && (bl_2x_2 + 100 > x)) vy = -vy, bl_2x_2 = -300, chet = chet + 200, vx = vx + 0.1, vy = vy + 0.2;
             gm.fillRect(bl_2x_2, bl_2y_2, 100, 20);
             //3
-            gm.fillStyle = "#36e036";
             if ((y < bl_3y_2 + 30) && (y > bl_3y_2 - 10)&& (bl_3x_2 - 10 < x) && (bl_3x_2 + 100 > x)) vy = -vy, bl_3x_2 = -300, chet = chet + 200, vx = vx + 0.1, vy = vy + 0.2;
             gm.fillRect(bl_3x_2, bl_3y_2, 100, 20);
             //4
-            gm.fillStyle = "yellow";
             if ((y < bl_4y_2 + 30) && (y > bl_4y_2 - 10)&& (bl_4x_2 - 10 < x) && (bl_4x_2 + 100 > x)) vy = -vy, bl_4x_2 = -300, chet = chet + 200, vx = vx + 0.1, vy = vy + 0.2;
             gm.fillRect(bl_4x_2, bl_4y_2, 100, 20);
             //5
-            gm.fillStyle = "orange";
             if ((y < bl_5y_2 + 30) && (y > bl_5y_2 - 10)&& (bl_5x_2 - 10 < x) && (bl_5x_2 + 100 > x)) vy = -vy, bl_5x_2 = -300, chet = chet + 200, vx = vx + 0.1, vy = vy + 0.2;
             gm.fillRect(bl_5x_2, bl_5y_2, 100, 20);
             //6
-            gm.fillStyle = "red";
             if ((y < bl_6y_2 + 30) && (y > bl_6y_2 - 10)&& (bl_6x_2 - 10 < x) && (bl_6x_2 + 100 > x)) vy = -vy, bl_6x_2 = -300, chet = chet + 200, vx = vx + 0.1, vy = vy + 0.2;
             gm.fillRect(bl_6x_2, bl_6y_2, 100, 20);
             // Third
@@ -209,39 +190,33 @@
             if ((y < bl_y_3 + 30) && (y > bl_y_3 - 10) && (bl_x_3 - 10 < x) && (bl_x_3 + 100 > x)) vy = -vy, bl_x_3 = -300, chet = chet + 200, vx = vx + 0.1, vy = vy + 0.2;
             gm.fillRect(bl_x_3, bl_y_3, 100, 20);
             //2
-            gm.fillStyle = "orange";
             if ((y < bl_2y_3 + 30) && (y > bl_2y_3 - 10)&& (bl_2x_3 - 10 < x) && (bl_2x_3 + 100 > x)) vy = -vy, bl_2x_3 = -300, chet = chet + 200, vx = vx + 0.1, vy = vy + 0.2;
             gm.fillRect(bl_2x_3, bl_2y_3, 100, 20);
             //3
-            gm.fillStyle = "yellow";
             if ((y < bl_3y_3 + 30) && (y > bl_3y_3 - 10)&& (bl_3x_3 - 10 < x) && (bl_3x_3 + 100 > x)) vy = -vy, bl_3x_3 = -300, chet = chet + 200, vx = vx + 0.1, vy = vy + 0.2;
             gm.fillRect(bl_3x_3, bl_3y_3, 100, 20);
             //4
-            gm.fillStyle = "#36e036";
             if ((y < bl_4y_3 + 30) && (y > bl_4y_3 - 10)&& (bl_4x_3 - 10 < x) && (bl_4x_3 + 100 > x)) vy = -vy, bl_4x_3 = -300, chet = chet + 200, vx = vx + 0.1, vy = vy + 0.2;
             gm.fillRect(bl_4x_3, bl_4y_3, 100, 20);
             //5
-            gm.fillStyle = "deepskyblue";
             if ((y < bl_5y_3 + 30) && (y > bl_5y_3 - 10)&& (bl_5x_3 - 10 < x) && (bl_5x_3 + 100 > x)) vy = -vy, bl_5x_3 = -300, chet = chet + 200, vx = vx + 0.1, vy = vy + 0.2;
             gm.fillRect(bl_5x_3, bl_5y_3, 100, 20);
             //6
-            gm.fillStyle = "purple";
             if ((y < bl_6y_3 + 30) && (y > bl_6y_3 - 10)&& (bl_6x_3 - 10 < x) && (bl_6x_3 + 100 > x)) vy = -vy, bl_6x_3 = -300, chet = chet + 200, vx = vx + 0.1, vy = vy + 0.2;
             gm.fillRect(bl_6x_3, bl_6y_3, 100, 20);
             if (chet == 3600) alert("You WIN");
         }
-        window.requestAnimationFrame(animation);
+        if(lose == 0) window.requestAnimationFrame(animation);
+        if(lose == 1) alert("LOSE");
         function navigate(event) {
             if (event.keyCode == 39) pc_x = pc_x + pl;
             if (event.keyCode == 37) pc_x = pc_x - pl;
-            if (pc_x + 100 > 600) pc_x = pc_x - 10, gm.fillStyle = "#36e036";;
-            if (pc_x < 0) pc_x = pc_x + 10, gm.fillStyle = "#36e036";;
-        }
-        function che(event) {
-            if (event.keyCode == 83) alert(chet);
+            if (pc_x + 100 > 600) pc_x = pc_x - 10, gm.fillStyle = "red";
+            if (pc_x < 0) pc_x = pc_x + 10, gm.fillStyle = "red";
         }
         document.addEventListener("keydown", navigate);
-        document.addEventListener("keydown", che);
         }
     </script>
 </body>
+
+</html>
