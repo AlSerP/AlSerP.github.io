@@ -37,29 +37,30 @@
     <p>
         S - пауза<br> управление - стрелка вправо/влево
     </p>
+    <input type='button' value='Изменить' onclick='messageShow()'/>
     <button type='button' value='Начать игру' onclick='StartGame()' />
     <canvas width="600" height="300" id="my_game"></canvas>
     
     <script>
+        function messageShow() {
+            document.getElementById('my_game').style.backgroundImage=" url(http://www.wallpaperhd.pk/wp-content/uploads/2015/08/meteorites-cosmos-sci-fi-wallpaper.jpg)";
+        }
         function StartGame(){
         "use strict";
         var gm = my_game.getContext("2d");
         //Переменные для шарика
         var
-            x,
+            x = 400,
             y = 100,
             vx = 2,
             vy = 4,
             pl = 10;
-        function getRandomInt(min, max) {
-            return Math.floor(Math.random() * (max - min)) + min; 
-        }
-        x = (getRandomInt(30, 520));
         //Платформа игрока
+        alert(x)
         var
-            pc_x = x + 50,
+            pc_x = x,
             pc_y = 250;
-        //Просчёт физики и прорисовка
+        //Просчёт физики и прорисовк
         var
             bl_x = 0,
             bl_y = 0;
@@ -120,9 +121,7 @@
         var
             chet = 0;
         var
-            rep = 0,
-            lose = 0;
-            
+            rep = 0;
         alert("Press OK to start")
         function animation() {
             //задаём таймер
@@ -138,7 +137,7 @@
             y = y + vy;
             if ((x > my_game.width - 10) || (x < 10)) vx = -vx;
             if ((y > my_game.height - 10) || (y < 10)) vy = -vy;
-            if (y > my_game.height - 10) lose = 1, chet = 0, x = -400, y = 100, vx = 0, vy = 0;
+            if (y > my_game.height - 10) alert("Lose"), chet = 0, x = -400, y = 100, vx = 0, vy = 0;
             //шарик отталкивается от платформы
             if ((y > pc_y - 10) && (pc_x - 10 < x) && (pc_x + 100 > x)  && (vx < 0)) vy = -vy, vx = vx + (vx - pc_x) / 1000, pl = pl + 1;
             if ((y > pc_y - 10) && (pc_x - 10 < x) && (pc_x + 100 > x)  && (vx > 0)) vy = -vy, vx = vx - (vx - pc_x) / 1000, pl = pl + 1;
@@ -206,15 +205,18 @@
             gm.fillRect(bl_6x_3, bl_6y_3, 100, 20);
             if (chet == 3600) alert("You WIN");
         }
-        if(lose == 0) window.requestAnimationFrame(animation);
-        if(lose == 1) alert("LOSE");
+        window.requestAnimationFrame(animation);
         function navigate(event) {
             if (event.keyCode == 39) pc_x = pc_x + pl;
             if (event.keyCode == 37) pc_x = pc_x - pl;
-            if (pc_x + 100 > 600) pc_x = pc_x - 10, gm.fillStyle = "red";
-            if (pc_x < 0) pc_x = pc_x + 10, gm.fillStyle = "red";
+            if (pc_x + 100 > 600) pc_x = 500, gm.fillStyle = "red";;
+            if (pc_x < 0) pc_x = 0, gm.fillStyle = "red";;
+        }
+        function che(event) {
+            if (event.keyCode == 83) alert(chet);
         }
         document.addEventListener("keydown", navigate);
+        document.addEventListener("keydown", che);
         }
     </script>
 </body>
